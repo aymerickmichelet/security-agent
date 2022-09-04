@@ -5,8 +5,9 @@ intents = discord.Intents.all()
 intents.typing = False
 intents.presences = False
 
-bot_token = 'NzcxODYxMTQ1NTM5NzA2ODgw.G9osxW.nrfcH7VDVktwc2jE3Ay_x4Aut58glKwoErYJlo'
-channel_id = '952164676815429704'
+bot_token = 'NzU5ODc2NTU5Nzc5MTM1NTI5.G41uxj.pseMZ3nhsO3-bpsDFFev0JEvBFr4ClKyqFDl6g' # security-agent
+# bot_token = 'NzcxODYxMTQ1NTM5NzA2ODgw.G9osxW.nrfcH7VDVktwc2jE3Ay_x4Aut58glKwoErYJlo' # vigile
+# channel_id = '952164676815429704'
 command_prefix = '!'
 bot = commands.Bot(command_prefix=command_prefix, description="Security Agent", intents=intents)
 
@@ -21,14 +22,6 @@ def pseudo_is_unique(members, pseudo):
 @bot.event
 async def on_ready():
     print("Ready !")
-
-
-# fonction pour supprimer tt les messages du channel d'inscription qui n'est pas la cmt register
-@bot.event
-async def on_message(message):
-    if message.channel.id == channel_id and command_prefix+"register" not in message.content:
-        await message.delete()
-    await bot.process_commands(message)
 
 
 @bot.command()
